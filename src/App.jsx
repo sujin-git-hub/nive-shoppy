@@ -11,29 +11,31 @@ const App = ()=>{
     children:[
       {
         index: true,
-        element: <Landing />,
+        element: <Landing />
       },{
-      path : "products",
-      element: <Products />,
-      errorElement: <Error />,
-    },{
-      path : "about",
-      element: <About />,
-      errorElement: <Error />,
-    },{
-      path : "cart",
-      element: <Cart />,
-      errorElement: <Error />,
-    },{
-      path : "checkout",
-      element: <Checkout />,
-      errorElement: <Error />,
-    },{
-      path : "orders",
-      element: <Orders />,
-      errorElement: <Error />,
-    }]  
-  }]);
+        path : "products",
+        element: <Products />
+      },{
+        path : "about",
+        element: <About />
+      },{
+        path : "cart",
+        element: <Cart />
+      },{
+        path : "checkout",
+        element: <Checkout />
+      },{
+        path : "orders",
+        element: <Orders />
+      }]  
+  },{
+    path : "login",
+    element: <Login />
+  },{
+    path : "register",
+    element: <Register />
+  }
+]);
 return(
   <RouterProvider router={router}/>
 )
