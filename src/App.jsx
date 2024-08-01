@@ -1,6 +1,11 @@
 
 import {About, Cart, Checkout, Error, HomeLayout, Landing, Login, Orders, Products, Register, SingleProduct} from "./Pages"
+
 import { RouterProvider, createBrowserRouter } from "react-router-dom"
+
+import { ErrorElement } from './Components';
+// loaders
+import { loader as landingLoader } from './Pages/Landing';
 
 
 const App = ()=>{
@@ -11,7 +16,9 @@ const App = ()=>{
     children:[
       {
         index: true,
-        element: <Landing />
+        element: <Landing />,
+        loader: <landingLoader />,
+        errorElement: <ErrorElement />
       },{
         path : "products",
         element: <Products />
