@@ -8,6 +8,8 @@ import { ErrorElement } from './Components';
 import { loader as landingLoader } from './Pages/Landing';
 
 
+
+
 const App = ()=>{
   const router = createBrowserRouter([{
     path : "/",
@@ -17,14 +19,21 @@ const App = ()=>{
       {
         index: true,
         element: <Landing />,
-        loader: <landingLoader />,
-        errorElement: <ErrorElement />
+        errorElement: <ErrorElement />,
+        loader: landingLoader,
       },{
         path : "products",
-        element: <Products />
+        element: <Products />,
+        errorElement: <ErrorElement />
+      },
+      {
+        path: 'products/:id',
+        element: <SingleProduct />,
+        errorElement: <ErrorElement />,
       },{
         path : "about",
-        element: <About />
+        element: <About />,
+        errorElement: <ErrorElement />
       },{
         path : "cart",
         element: <Cart />
