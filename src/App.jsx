@@ -7,6 +7,7 @@ import { ErrorElement } from './Components';
 // loaders
 import { loader as landingLoader } from './Pages/Landing';
 import { loader as productLoader } from './Pages/SingleProduct';
+import { loader as productSLoader } from './Pages/Products';
 
 
 
@@ -25,7 +26,8 @@ const App = ()=>{
       },{
         path : "products",
         element: <Products />,
-        errorElement: <ErrorElement />
+        errorElement: <ErrorElement />,
+        loader: productSLoader
       },
       {
         path: 'products/:id',
