@@ -8,7 +8,8 @@ export const loader = async ()=>{
     const url = '/products';
     const response = await customFeatch(url);
     const products = response.data.data;
-    return {products};
+    const meta = response.data.meta;
+    return { products, meta };
 }
 
 const Products = (props) => {
@@ -21,3 +22,4 @@ const Products = (props) => {
 }
 
 export default Products;
+

@@ -29,7 +29,7 @@ const Navbar = () => {
     <nav className='bg-base-200'>
       <div className='navbar align-element'>
         <div className='navbar-start'>
-          <NavLink to='/' className='hidden lg:flex btn btn-primary text-3xl items-center' > C </NavLink>
+          <NavLink to='/' className='hidden lg:flex btn btn-primary text-3xl items-center' > N </NavLink>
           <div className='dropdown'>
             <label tabIndex={0} className='btn btn-ghost lg:hidden'>
               <FaBarsStaggered className='h-6 w-6' />
