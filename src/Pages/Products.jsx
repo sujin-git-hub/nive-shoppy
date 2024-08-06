@@ -3,14 +3,19 @@ import customFeatch from "../Utils";
 
 
 
-
-export const loader = async ()=>{
+export const loader = async ({ request }) => {
     const url = '/products';
-    const response = await customFeatch(url);
+    const params = Object.fromEntries([
+      ...new URL(request.url).searchParams.entries(),
+    ]);
+    const response = await customFeatch(url, { params });
+  
     const products = response.data.data;
     const meta = response.data.meta;
-    return { products, meta };
-}
+  
+    return { products, meta, params };
+  };
+
 
 const Products = (props) => {
     
