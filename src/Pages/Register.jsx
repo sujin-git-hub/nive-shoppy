@@ -6,6 +6,9 @@ import customFeatch from '../Utils';
 
 export const action = async ({ request }) => {
   debugger;
+  // if(request == null){
+  //   return null;
+  // }
   const formData = await request.formData();
   const data = Object.fromEntries(formData);
   try {

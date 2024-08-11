@@ -1,8 +1,10 @@
 
 import { useDispatch } from 'react-redux';
 import { FormInput, SubmitBtn } from '../Components';
-import { Form, Link, useNavigate } from 'react-router-dom';
+import { Form, Link, redirect, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import customFeatch from '../Utils';
+import { loginUser } from '../Features/User/userSlice';
 
 
 
@@ -11,7 +13,7 @@ export const action = (store) =>
     const formData = await request.formData();
     const data = Object.fromEntries(formData);
     try {
-      const response = await customFetch.post('/auth/local', data);
+      const response = await customFeatch.post('/auth/local', data);
 
       store.dispatch(loginUser(response.data));
       toast.success('logged in successfully');
@@ -32,7 +34,7 @@ const Login = () => {
   const navigate = useNavigate();
   const loginAsGuestUser = async () => {
     try {
-      const response = await customFetch.post('/auth/local', {
+      const response = await customFeatch.post('/auth/local', {
         identifier: 'test@test.com',
         password: 'secret',
       });

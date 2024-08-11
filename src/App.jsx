@@ -10,6 +10,7 @@ import { action as registerAction } from './Pages/Register';
 import { loader as productSLoader } from './Pages/Products';
 import { loader as landingLoader } from './Pages/Landing';
 import { loader as productLoader } from './Pages/SingleProduct';
+import { loader as ordersLoader } from './Pages/Orders';
 
 
 const App = ()=>{
@@ -46,7 +47,8 @@ const App = ()=>{
         element: <Checkout />
       },{
         path : "orders",
-        element: <Orders />
+        element: <Orders />,
+        loader: ordersLoader(store),
       }]  
   },{
     path : "login",
@@ -57,7 +59,7 @@ const App = ()=>{
     path : "register",
     element: <Register />,
     errorElement: <Error />,
-    action: registerAction(store),
+    action: registerAction,
   }
 ]);
 return(
