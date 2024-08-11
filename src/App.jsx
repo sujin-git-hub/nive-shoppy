@@ -4,12 +4,12 @@ import {About, Cart, Checkout, Error, HomeLayout, Landing, Login, Orders, Produc
 import { RouterProvider, createBrowserRouter } from "react-router-dom"
 
 import { ErrorElement } from './Components';
-// loaders
+import { store } from './store';
+import { action as loginAction } from './Pages/Login';
+import { action as registerAction } from './Pages/Register';
+import { loader as productSLoader } from './Pages/Products';
 import { loader as landingLoader } from './Pages/Landing';
 import { loader as productLoader } from './Pages/SingleProduct';
-import { loader as productSLoader } from './Pages/Products';
-
-
 
 
 const App = ()=>{
@@ -50,10 +50,14 @@ const App = ()=>{
       }]  
   },{
     path : "login",
-    element: <Login />
+    element: <Login />,
+    errorElement: <Error />,
+    action: loginAction(store),
   },{
     path : "register",
-    element: <Register />
+    element: <Register />,
+    errorElement: <Error />,
+    action: registerAction(store),
   }
 ]);
 return(
