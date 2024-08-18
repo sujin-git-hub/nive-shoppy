@@ -6,12 +6,21 @@ import { useDispatch } from 'react-redux';
 import { addItem } from '../Features/Cart/cartSlice';
 
 
-export const loader = async ({ params }) => {
-  const url = `/products/${params.id}`;
-  const response = await customFeatch(url);
-  const product = response.data.data;
-  return { product };
+const singleProductQuery = (id) => {
+  return {
+    queryKey: ['singleProduct', id],
+    queryFn: () => customFetch.get(`/products/${id}`),
+  };
 };
+
+export const loader =
+  (queryClient) =>
+  async ({ params }) => {
+    const response = await queryClient.ensureQueryData(
+      singleProductQuery(params.id)
+    );
+    return { product: response.data.data };
+  };
 
 
 const SingleProduct = () => {
