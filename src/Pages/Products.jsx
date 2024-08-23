@@ -2,7 +2,7 @@ import { Filters, PaginationContainer, ProductsContainer } from "../Components";
 import customFeatch from "../Utils";
 
 
-
+const url = '/products';
 const allProductsQuery = (queryParams) => {
   const { search, category, company, sort, price, shipping, page } =
     queryParams;
@@ -19,7 +19,7 @@ const allProductsQuery = (queryParams) => {
       page ?? 1,
     ],
     queryFn: () =>
-      customFetch(url, {
+      customFeatch(url, {
         params: queryParams,
       }),
   };

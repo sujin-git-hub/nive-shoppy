@@ -9,7 +9,7 @@ import { addItem } from '../Features/Cart/cartSlice';
 const singleProductQuery = (id) => {
   return {
     queryKey: ['singleProduct', id],
-    queryFn: () => customFetch.get(`/products/${id}`),
+    queryFn: () => customFeatch.get(`/products/${id}`),
   };
 };
 

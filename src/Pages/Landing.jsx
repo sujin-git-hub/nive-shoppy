@@ -2,9 +2,10 @@ import { Hero, FeaturedProducts } from "../Components";
 import customFeatch  from '../Utils';
 
 
+const url = '/products?featured=true';
 const featuredProductsQuery = {
   queryKey: ['featuredProducts'],
-  queryFn: () => customFetch(url),
+  queryFn: () => customFeatch(url),
 };
 
 export const loader = (queryClient) => async () => {
