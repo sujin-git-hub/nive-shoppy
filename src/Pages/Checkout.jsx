@@ -14,8 +14,10 @@ export const loader = (store) => async () => {
   return null;
 };
 const Checkout = () => {
-  const cartItems = useSelector((state) => state.cartState.cartTotal);
-  if (CartTotals.length === 0) {
+  const CartTotal = useSelector((state) => state.cartState.cartItems);
+  useSelector((state) => {console.log(state)});
+  debugger;
+  if (CartTotal.length === 0) {
     return <SectionTitle text='Your cart is empty' />;
   }
   return (
